@@ -1,0 +1,3 @@
+EmpregadoComDeficiencia{id=1, name='Samu', salary=100, tipoDeficiencia='Cegueira'}
+Empregado{id=2, name='Sam', salary=100}
+EmpregadoTerceirizado{id=3, name='Samuel', salary=80}

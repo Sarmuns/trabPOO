@@ -24,9 +24,13 @@ public class EmpregadoComDeficiencia extends Funcionario{
         return(this.salary*0.25);
     }
 
-    public double calcularBonus(int X){
-        System.out.println(X+"% de bonus especial");
-        return (this.salary*X/100);
+    public double calcularBonus(int X) throws bonusException{
+        if(X>25){
+            throw new bonusException();
+        } else{
+            System.out.println(X+"% de bonus especial");
+            return (this.salary*X/100);
+        }
     }
 
     @Override

@@ -8,7 +8,7 @@ public abstract class Cliente extends Pessoa implements ClientInterface{
 
     public void cashback(){};
 
-    public void cashback(int x){};
+    public void cashback(int x) throws cashbackException {};
     @Override
     public String toString() {
         return "Cliente{" +

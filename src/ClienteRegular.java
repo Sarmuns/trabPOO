@@ -38,7 +38,7 @@ public class ClienteRegular extends Cliente implements ClientInterface{
         System.out.println("Clientes não VIPs não tem direito a cashback");
     }
 
-    public void cashback(int x){};
+    public void cashback(int x) throws cashbackException {};
 
     @Override
     public String toString() {

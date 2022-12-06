@@ -68,7 +68,10 @@ public class ClienteVIP extends ClienteRegular implements ClientInterface {
         }
     }
 
-    public void cashback(int X){
+    public void cashback(int X) throws cashbackException {
+        if(X>10){
+            throw new cashbackException();
+        }
         if(cashbackStatus){
             System.out.println("Cashback ativo");
             setCashbackValor(X);

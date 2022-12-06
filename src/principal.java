@@ -1,11 +1,13 @@
+import java.io.IOException;
 import java.util.*;
+import java.io.FileWriter;
 class crudOperation {
-    public static void main(String args[]) {
+    public static void main(String args[]) throws IOException, cashbackException, bonusException {
         List<Funcionario> c = new ArrayList < Funcionario>();
 
-        c.add(new EmpregadoComDeficiencia(1, "Samu",100,"Cegueira"));
-        c.add(new Empregado(2, "Sam", 100));
-        c.add(new EmpregadoTerceirizado(3,"Samuel",80));
+        c.add(new EmpregadoComDeficiencia(1, "Samu",1200,"Cegueira"));
+        c.add(new Empregado(2, "Sam", 2000));
+        c.add(new EmpregadoTerceirizado(3,"Samuel",800));
 
         List<Cliente> d = new ArrayList<Cliente>();
 
@@ -15,6 +17,8 @@ class crudOperation {
         Scanner s = new Scanner(System.in);
         Scanner s1 = new Scanner(System.in);
         Scanner s2 = new Scanner(System.in);
+
+
         int ch;
         do {
             System.out.println("1.Adicionar Funcionario");
@@ -30,7 +34,7 @@ class crudOperation {
             System.out.print("Digite sua escolha : ");
             ch = s.nextInt();
             switch (ch) {
-                //Insert Operation
+                //INSERIR
                 case 1:
                     System.out.println("1-Funcionario regular");
                     System.out.println("1-Funcionario com deficiencia");
@@ -57,17 +61,32 @@ class crudOperation {
                     System.out.println("Funcionario adicionado com sucesso");
                     System.out.println("---------------------");
                     break;
-                //Display Operation
+                //MOSTRAR / GERAR RELATORIO
                 case 2:
                     System.out.println("---------------------");
+                    System.out.println("1-Gerar Arquivo de relatorio");
+                    System.out.println("2-Visualização rapida");
+                    aux = s.nextInt();
                     Iterator < Funcionario > i = c.iterator();
-                    while (i.hasNext()) {
-                        Funcionario e = i.next();
-                        System.out.println(e.toString());
+                    if(aux==1){
+                        FileWriter fw = new FileWriter("relatorioFunc.txt");;
+                        while (i.hasNext()) {
+                            Funcionario e = i.next();
+                            fw.write(e.toString() + "\n");
+                        }
+                        fw.close();
+                        System.out.println("Arquivo gerado com sucesso");
+                    } else if(aux==2){
+                        while (i.hasNext()) {
+                            Funcionario e = i.next();
+                            System.out.println(e.toString());
+                        }
+
                     }
+
                     System.out.println("---------------------");
                     break;
-                //Search Opeartion
+                //PROCURAR POR DETALHES POR ID
                 case 3:
                     boolean found = false;
                     System.out.print("Digite o id : ");
@@ -86,12 +105,12 @@ class crudOperation {
                             aux = s.nextInt();
                             System.out.println("---------------------");
                             if(aux==1){
-                                System.out.println(e.calcularBonus());
+                                System.out.println(e.calcularBonus() + " R$");
                             }else if(aux==2) {
                             } else if(aux==3){
                                 System.out.println("Digite quantos % de bonus: ");
                                 int bonus = s.nextInt();
-                                System.out.println(e.calcularBonus(bonus) + " Reais");
+                                System.out.println(e.calcularBonus(bonus) + " R$");
                             }
                             found = true;
                         }
@@ -103,7 +122,7 @@ class crudOperation {
 
                     System.out.println("---------------------");
                     break;
-                //Delete Operation
+                //DELETAR
                 case 4:
                     found = false;
                     System.out.print("Digite o id : ");
@@ -124,7 +143,7 @@ class crudOperation {
                     }
                     System.out.println("---------------------");
                     break;
-                //Update Opeartion
+                //ATUALIZAR FUNCIONARIO
                 case 5:
                     found = false;
                     System.out.print("Digite o id: ");
@@ -151,6 +170,7 @@ class crudOperation {
                     System.out.println("---------------------");
                     break;
                     //Clientes
+                    //CADASTRAR CLIENTES
                 case 6:
                     System.out.println("1-Cliente regular");
                     System.out.println("2-Cliente VIP");
@@ -169,15 +189,31 @@ class crudOperation {
                     }
                     System.out.println("---------------------");
                     break;
+                    //IMPRIMIR CLIENTES
                 case 7:
+
                     System.out.println("---------------------");
+                    System.out.println("1-Gerar Arquivo de relatorio");
+                    System.out.println("2-Visualização rapida");
+                    aux = s.nextInt();
                     Iterator <Cliente> j = d.iterator();
-                    while (j.hasNext()) {
-                        Cliente e = j.next();
-                        System.out.println(e.toString());
+                    if(aux==1){
+                        FileWriter fw2 = new FileWriter("relatorioClient.txt");;
+                        while (j.hasNext()) {
+                            Cliente e = j.next();
+                            fw2.write(e.toString() + "\n");
+                        }
+                        fw2.close();
+                        System.out.println("Arquivo gerado com sucesso");
+                    } else if(aux==2){
+                        while (j.hasNext()) {
+                            Cliente e = j.next();
+                            System.out.println(e.toString());
+                        }
                     }
                     System.out.println("---------------------");
                     break;
+                    //Procurar/Atualizar Cliente
                 case 8:
                     found = false;
                     System.out.print("Digite o id : ");
@@ -252,6 +288,7 @@ class crudOperation {
 
                     System.out.println("---------------------");
                     break;
+                    //DELETAR
                 case 9:
                     found = false;
                     System.out.print("Digite o id : ");
