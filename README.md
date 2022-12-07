@@ -1,5 +1,8 @@
 # trabPOO!
-
+Equipe:
+Filipe Souto - 2219423
+Samuel Alcântara - 2213017
+.
 ## Diagrama de classes
 ![Diagrama_De_Classes](https://user-images.githubusercontent.com/29101797/205960540-844b5d78-e2e6-4c5d-bbef-345c8b2d390b.png)
 
