@@ -1,6 +1,6 @@
 # trabPOO!
 Equipe:
-Filipe Souto - 2219423
+Filipe Souto - 2219423 e 
 Samuel Alcântara - 2213017
 .
 ## Diagrama de classes
