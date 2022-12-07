@@ -1,2 +1,0 @@
-ClienteRegular{id=1, name='Filipe', desconto=0}
-ClienteVIP{id=2, name='Flip', desconto=0, cashbackStatus=true, cashbackValor=0}

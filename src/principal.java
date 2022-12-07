@@ -37,8 +37,8 @@ class crudOperation {
                 //INSERIR
                 case 1:
                     System.out.println("1-Funcionario regular");
-                    System.out.println("1-Funcionario com deficiencia");
-                    System.out.println("2-Funcionario terceirizado");
+                    System.out.println("2-Funcionario com deficiencia");
+                    System.out.println("3-Funcionario terceirizado");
                     int aux = s.nextInt();
                     System.out.print("id : ");
                     int eno = s.nextInt();
@@ -56,6 +56,11 @@ class crudOperation {
                         c.add(new EmpregadoComDeficiencia(eno, ename, salary, def));
                     } else if(aux==3){
                         c.add(new EmpregadoTerceirizado(eno, ename, salary));
+                    } else{
+                        System.out.println("ERRO");
+                        System.out.println("Digite 1, 2 ou 3");
+                        System.out.println("---------------------");
+                        break;
                     }
                     System.out.println("---------------------");
                     System.out.println("Funcionario adicionado com sucesso");
@@ -82,6 +87,11 @@ class crudOperation {
                             System.out.println(e.toString());
                         }
 
+                    } else{
+                        System.out.println("ERRO");
+                        System.out.println("Digite 1 ou 2");
+                        System.out.println("---------------------");
+                        break;
                     }
 
                     System.out.println("---------------------");
@@ -111,6 +121,11 @@ class crudOperation {
                                 System.out.println("Digite quantos % de bonus: ");
                                 int bonus = s.nextInt();
                                 System.out.println(e.calcularBonus(bonus) + " R$");
+                            } else{
+                                System.out.println("ERRO");
+                                System.out.println("Digite 1, 2 ou 3");
+                                System.out.println("---------------------");
+                                break;
                             }
                             found = true;
                         }
@@ -186,6 +201,11 @@ class crudOperation {
                         boolean cash = s2.nextBoolean();
                         d.add(new ClienteVIP(eno, ename, cash));
 
+                    } else{
+                        System.out.println("ERRO");
+                        System.out.println("Digite 1 ou 2");
+                        System.out.println("---------------------");
+                        break;
                     }
                     System.out.println("---------------------");
                     break;
@@ -210,6 +230,11 @@ class crudOperation {
                             Cliente e = j.next();
                             System.out.println(e.toString());
                         }
+                    } else{
+                        System.out.println("ERRO");
+                        System.out.println("Digite 1 ou 2");
+                        System.out.println("---------------------");
+                        break;
                     }
                     System.out.println("---------------------");
                     break;
@@ -247,6 +272,11 @@ class crudOperation {
                                             System.out.println("Digite a % de cashback nova");
                                             int cash = s.nextInt();
                                             e.cashback(cash);
+                                        } else{
+                                            System.out.println("ERRO");
+                                            System.out.println("Digite 1 ou 2");
+                                            System.out.println("---------------------");
+                                            break;
                                         }
                                     }
                                 } else if(!((ClienteVIP) e).hasCashback()){
@@ -261,6 +291,11 @@ class crudOperation {
                                         System.out.println("Direito a cashback adicionado");
                                     } else if(aux==2){
                                         System.out.println("Direito a cashback mantido");
+                                    } else{
+                                        System.out.println("ERRO");
+                                        System.out.println("Digite 1 ou 2");
+                                        System.out.println("---------------------");
+                                        break;
                                     }
                                 }
 
@@ -274,7 +309,12 @@ class crudOperation {
                                 e.definirDesconto();
                                 System.out.println();
                             } else if(aux==2){
-
+                                System.out.println("Desconto não randomizado");
+                            } else{
+                                System.out.println("ERRO");
+                                System.out.println("Digite 1 ou 2");
+                                System.out.println("---------------------");
+                                break;
                             }
 
 
